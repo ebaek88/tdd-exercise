@@ -78,11 +78,11 @@ function createApp(database: Database) {
     return reduction;
   }
 
-  function isMonday(date: Date) {
+  function isMonday(date: Date | Temporal.PlainDate) {
     return date.getUTCDay() === 1;
   }
 
-  function isHoliday(date: Date | undefined) {
+  function isHoliday(date: Date | Temporal.PlainDate | undefined) {
     const holidays = database.getHolidays();
     for (let row of holidays) {
       let holiday = new Date(row.holiday);
