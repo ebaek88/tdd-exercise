@@ -99,6 +99,8 @@ function createApp(database: Database) {
       ) {
         return true;
       }
+      if (date && date instanceof Temporal.PlainDate && date.year === temporalHoliday.year && date.month === temporalHoliday.month && date.day === temporalHoliday.day)
+        return true;
     }
     return false;
   }
