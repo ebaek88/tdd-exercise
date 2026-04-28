@@ -91,6 +91,7 @@ function createApp(database: Database) {
       let holiday = new Date(row.holiday);
       if (
         date &&
+        date instanceof Date &&
         date.getFullYear() === holiday.getFullYear() &&
         date.getMonth() === holiday.getMonth() &&
         date.getDate() === holiday.getDate()
