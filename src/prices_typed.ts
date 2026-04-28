@@ -25,13 +25,13 @@ function createApp(database: Database) {
     res.json({ cost });
   });
 
-  function parseDate(dateString: string | undefined, dateString2: string | undefined): Date | undefined {
+  function parseDate(dateString: string | undefined, dateString2: string | undefined): Date | Temporal.PlainDate | undefined {
     if (dateString) {
       return new Date(dateString);
     }
   }
 
-  function calculateCost(age: number | undefined, type: string, date: Date | undefined, baseCost: number) {
+  function calculateCost(age: number | undefined, type: string, date: Date | Temporal.PlainDate | undefined, baseCost: number) {
     if (type === "night") {
       return calculateCostForNightTicket(age, baseCost);
     } else {
