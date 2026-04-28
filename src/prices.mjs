@@ -83,8 +83,8 @@ function createApp(database) {
   function isHoliday(date) {
     const holidays = database.getHolidays();
     for (let row of holidays) {
-      let temporalHoliday = Temporal.PlainDate.from(row.holiday);
-      if (date && date instanceof Temporal.PlainDate && date.equals(temporalHoliday)) { return true; }
+      let holiday = Temporal.PlainDate.from(row.holiday);
+      if (date && date instanceof Temporal.PlainDate && date.equals(holiday)) { return true; }
     }
     return false;
   }
